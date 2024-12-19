@@ -1,0 +1,37 @@
+﻿<div class="card-body">
+    @using (Html.BeginForm("AddEmployee", "Employee", FormMethod.Post))
+    {
+        <div class="form-group">
+            <label class="mar" for="name">Name:</label>
+            <input type="text" name="name" id="name" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label class="mar"for="role">Role:</label>
+            <select name="role" id="role" class="form-control" required>
+                <option value="Manager">Manager</option>
+                <option value="Developer">Developer</option>
+                <option value="Intern">Intern</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="mar" for="basicPay">Basic Pay:</label>
+            <input type="number" name="basicPay" id="basicPay" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label class="mar" for="allowances">Allowances:</label>
+            <input type="number" name="allowances" id="allowances" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label class="mar" for="deductions">Deductions:</label>
+            <input type="number" name="deductions" id="deductions" class="form-control" required />
+        </div>
+        <button style="margin-top: 10px;"  type="submit" class="btn btn-success">Add Employee</button>
+    }
+    @* Ensure this closing brace matches the @using block *@
+    <a href="@Url.Action("Index", "Employee")" class="btn btn-secondary mt-3">Back to Index</a>
+</div>
+<style>
+    .mar {
+        margin-top: 10px;
+    }
+</style>

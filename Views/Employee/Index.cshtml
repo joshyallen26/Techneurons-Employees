@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Employee.Models.BaseEmployee>
+<div class="card">
+    <div class="card-header">
+        <h3>Employee List</h3>
+    </div>
+    <div class="card-body">
+        <a href="@Url.Action("AddEmployee", "Employee")" class="btn btn-success mb-3">Add New Employee</a>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Role</th>
+                    <th>Salary</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var employee in Model)
+                {
+                    <tr>
+                        <td>@employee.Name</td>
+                        <td>@employee.GetType().Name</td>
+                        <td>@employee.CalculateSalary()</td>
+                        <td>
+                            <a href="@Url.Action("ViewPayroll", "Employee", new { id = employee.EmployeeID })" class="btn btn-info">View Payroll</a>
+                            <a href="@Url.Action("Edit", "Employee", new { id = employee.EmployeeID })" class="btn btn-warning">Edit</a>
+                            <a href="@Url.Action("Delete", "Employee", new { id = employee.EmployeeID })" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

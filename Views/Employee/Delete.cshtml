@@ -1,0 +1,24 @@
+﻿@model Employee.Models.BaseEmployee
+
+@{
+    ViewBag.Title = "Delete Employee";
+}
+
+<h2>Are you sure you want to delete this employee?</h2>
+
+<div>
+    <p>Name: @Model.Name</p>
+    <p>Role: @Model.GetType().Name</p>
+    <p>Basic Pay: @Model.BasicPay</p>
+    <p>Allowances: @Model.Allowances</p>
+    <p>Deductions: @Model.Deductions</p>
+</div>
+
+@using (Html.BeginForm("DeleteConfirmed", "Employee", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.EmployeeID) <!-- This generates the correct field -->
+    <button type="submit" class="btn btn-danger">Delete</button>
+}
+
+    <a href="@Url.Action("ViewEmployees", "Employee")" class="btn btn-secondary">Cancel</a>
+

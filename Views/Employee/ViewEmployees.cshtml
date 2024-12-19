@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Employee List";
+}
+
+<h2 class="text-center mb-4">Employee List</h2>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h4 class="m-0">Employee Details</h4>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Basic Pay</th>
+                        <th>Allowances</th>
+                        <th>Deductions</th>
+                        <th>Salary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var employee in Model)
+                    {
+                        <tr>
+                            <td>@employee.Name</td>
+                            <td>@employee.GetType().Name</td>
+                            <td>@employee.BasicPay</td>
+                            <td>@employee.Allowances</td>
+                            <td>@employee.Deductions</td>
+                            <td>@employee.CalculateSalary()</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="card-footer text-center">
+            <a href="@Url.Action("Index", "Employee")" class="btn btn-secondary">Back to Index</a>
+        </div>
+    </div>
+</div>
+

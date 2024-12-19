@@ -1,0 +1,11 @@
+﻿@model Employee.Models.BaseEmployee
+<div class="card">
+    <div class="card-body">
+        <h3>Payroll Details</h3>
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Name:</strong> @Model.Name</li>
+            <li class="list-group-item"><strong>Salary:</strong> @Model.CalculateSalary()</li>
+        </ul>
+        <a href="@Url.Action("Index", "Employee")" class="btn btn-secondary mt-3">Back to Employee List</a>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+﻿@model Employee.Models.BaseEmployee
+
+@{
+    ViewBag.Title = "Employee Salary";
+}
+
+<h2>Salary Details for @Model.Name</h2>
+
+<p>Basic Pay: @Model.BasicPay</p>
+<p>Allowances: @Model.Allowances</p>
+<p>Deductions: @Model.Deductions</p>
+<p><strong>Net Salary: @Model.CalculateSalary()</strong></p>
