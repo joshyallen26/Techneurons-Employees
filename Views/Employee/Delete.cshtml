@@ -4,9 +4,9 @@
     ViewBag.Title = "Delete Employee";
 }
 
-<h2>Are you sure you want to delete this employee?</h2>
+<h2 class="are">Are you sure you want to delete this employee?</h2>
 
-<div>
+<div class="hol">
     <p>Name: @Model.Name</p>
     <p>Role: @Model.GetType().Name</p>
     <p>Basic Pay: @Model.BasicPay</p>
@@ -22,3 +22,11 @@
 
     <a href="@Url.Action("ViewEmployees", "Employee")" class="btn btn-secondary">Cancel</a>
 
+<style>
+    .hol {
+    color: white;
+    }
+    .are {
+    color: white;
+    }
+</style>
